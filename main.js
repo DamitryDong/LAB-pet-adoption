@@ -235,8 +235,26 @@ const pets = [
         id: 30,
       name: "Lucy",
       color: "Red",
-      specialSkill: "Doesn’t get weirded out by the word “moist.”",
+      specialSkill: "Does'nt get weirded out by the word “moist.”",
       type: "dino",
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+const Targethtml = document.querySelector("#petApp")
+ 
+let domString = "";
+for (const pet of pets) {
+ 
+  domString += `<div class="card" style="width: 30rem;">
+      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
+      <div class="card-body">
+        <h5 class="name-title">${pet.name}</h5>
+        <p class="special-text">${pet.specialSkill}</p>
+        <p class="type-text">${pet.type}</p>
+      </div>
+    </div>`;
+}
+
+// you must call it and connect them together
+Targethtml.innerHTML = domString;

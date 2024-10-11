@@ -1,0 +1,12 @@
+.type-text {
+    background-color: maroon;
+    color: white;
+}
+
+.card-body {
+    background-color: slategrey;
+}
+
+.card {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 
+}
