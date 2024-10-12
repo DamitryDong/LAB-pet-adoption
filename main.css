@@ -1,12 +1,48 @@
-.type-text {
-    background-color: maroon;
-    color: white;
+body {
+    background-color: antiquewhite !important ;
+}
+
+#petApp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    row-gap: 50px;
+    column-gap: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .card-body {
-    background-color: slategrey;
+    border: 2px solid rgb(175, 175, 177);
 }
 
-.card {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 
+.cat {
+    background-color: rgb(153, 193, 234) !important;
+    color: black !important;
+}
+
+.dog {
+    background-color: rgb(153, 234, 175) !important;
+    color: black !important;
+}
+
+.dino {
+    background-color: rgb(234, 196, 153) !important;
+    color: black !important;
+}
+
+.allButtons {
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.name-title {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    background-color: rgb(205, 184, 155);
+}
+
+.type-text {
+    background-color: rgb(66, 121, 36);
 }

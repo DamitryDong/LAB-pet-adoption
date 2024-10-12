@@ -241,20 +241,97 @@ const pets = [
     }
   ];
 
+
+      //////////////////////////////////////////////////////
+                   //    for loop to populate html cards
+      //////////////////////////////////////////////////////
+
+
+
+// 1. setting location 
 const Targethtml = document.querySelector("#petApp")
- 
+
+
+// 2.  empty string and making function for filter
+const cardsOnDom = (array) => {   
 let domString = "";
-for (const pet of pets) {
+
+// filling in empty string
+for (const pet of array) {
  
-  domString += `<div class="card" style="width: 30rem;">
-      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
-      <div class="card-body">
-        <h5 class="name-title">${pet.name}</h5>
-        <p class="special-text">${pet.specialSkill}</p>
-        <p class="type-text">${pet.type}</p>
-      </div>
+  domString += 
+  
+   
+    `<div class="card" style="width: 15rem;">
+
+        <div class="card-body">
+          <h5 class="name-title">${pet.name}</h5>
+          <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
+          <p class="color-text">${pet.color}</p>
+          <p class="special-text">${pet.specialSkill}</p>
+          <p class="type-text">${pet.type}</p>
+        </div>
+
     </div>`;
+
+// 3. 1 + 2 populating set location with our string (filled out) (commented out due to button step)
+
+    Targethtml.innerHTML = domString; 
 }
 
-// you must call it and connect them together
-Targethtml.innerHTML = domString;
+}
+
+
+
+
+      //////////////////////////////////////////////////////
+                   //    filter for buttons 
+      //////////////////////////////////////////////////////
+
+
+// Makes default view this (all pets)
+cardsOnDom(pets)
+
+// 1. make a filter (if)
+
+const filter = (array, petType) => {
+  const petArray = [];
+
+  for (const member of array) {
+    if (member.type === petType) {
+      petArray.push(member);
+      }
+  }
+
+  return petArray;
+};
+
+// 2. connect html buttons to js 
+const catButton = document.querySelector("#cat");
+const dogButton = document.querySelector("#dog");
+const dinoButton = document.querySelector("#dino");
+const allButton = document.querySelector("#all");
+
+
+// 3. 1 + 2 use event listener so when they click button, we trigger step 1 
+
+      //  show all button
+      allButton.addEventListener("click", () => {
+        cardsOnDom(pets);
+      });
+
+      //  filter button for each pet type
+      catButton.addEventListener("click", () => {
+        const catMembers = filter(pets, "cat");
+        cardsOnDom(catMembers);
+      });
+      
+      dogButton.addEventListener("click", () => {
+        const dogMembers = filter(pets, "dog");
+        cardsOnDom(dogMembers);
+      });
+
+      dinoButton.addEventListener("click", () => {
+        const dinoMembers = filter(pets, "dino");
+        cardsOnDom(dinoMembers);
+      });
